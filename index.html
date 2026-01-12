@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Treasure Trove</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #e5e7eb;
+      margin-top: 40px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tech Treasure Trove</h1>
+    <p>Selling new & used PC parts and gaming gear 🎮</p>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>About Tech Treasure Trove</h2>
+      <p>Tech Treasure Trove is a community marketplace where gamers and PC enthusiasts can buy and sell tech with each other. List your items, browse deals, and find great gaming gear from real people.</p>
+    </div>
+
+    <div class="card">
+      <h2>Marketplace Categories</h2>
+      <p>• PC Parts (CPUs, GPUs, RAM, Storage)<br>• Gaming PCs & Laptops<br>• Consoles & Controllers<br>• Gaming Accessories<br>• New & Used Tech Listings</p>
+    </div>
+
+    <div class="card">
+      <h2>Sell or Buy Items</h2>
+      <p>Want to sell something? Send us your item details and contact info to get listed.</p>
+      <form action="mailto:techtreasuretrove@gmail.com" method="post" enctype="text/plain">
+        <label>Item Name</label>
+        <input type="text" name="Item Name" placeholder="e.g. RTX 3060 Graphics Card" required>
+
+        <label>Price (£)</label>
+        <input type="number" name="Price" placeholder="e.g. 250" required>
+
+        <label>Condition</label>
+        <select name="Condition">
+          <option>New</option>
+          <option>Like New</option>
+          <option>Used</option>
+          <option>For Parts</option>
+        </select>
+
+        <label>Description</label>
+        <textarea name="Description" placeholder="Describe the item, condition, and any issues" required></textarea>
+
+        <label>Contact Method</label>
+        <input type="text" name="Contact" placeholder="Email or WhatsApp" required>
+
+        <button type="submit">Submit Listing</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Marketplace Listings</h2>
+      <p>Approved items from the community. Contact sellers directly to buy.</p>
+
+      <div class="card">
+        <h3>RTX 3060 Graphics Card</h3>
+        <p><strong>Price:</strong> £250</p>
+        <p><strong>Condition:</strong> Used</p>
+        <p><strong>Description:</strong> Fully working, never overclocked.</p>
+        <p><strong>Contact:</strong> seller@email.com</p>
+      </div>
+
+      <div class="card">
+        <h3>Gaming Mechanical Keyboard</h3>
+        <p><strong>Price:</strong> £60</p>
+        <p><strong>Condition:</strong> Like New</p>
+        <p><strong>Description:</strong> RGB mechanical keyboard, boxed.</p>
+        <p><strong>Contact:</strong> WhatsApp: 07xxxxxxxxx</p>
+      </div>
+
+      <p><em>More listings added daily. Submit your item above to be included.</em></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Tech Treasure Trove</p>
+  </footer>
+
+</body>
+</html>
