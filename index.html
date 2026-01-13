@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tech Treasure Trove</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
 * { box-sizing: border-box; }
@@ -18,7 +18,7 @@ body {
   color: #f8fafc;
 }
 
-/* PIRATE HEADER */
+/* ================= HEADER & SLIDER ================= */
 header {
   position: relative;
   height: 340px;
@@ -28,21 +28,33 @@ header {
   align-items: center;
   text-align: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #1e293b, #3b2f2f);
 }
 
+/* Slider */
+.slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.slide.active { opacity: 1; }
+
+/* Gold overlay */
 header::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255,215,0,0.08),
-    rgba(255,215,0,0.08) 10px,
-    rgba(0,0,0,0.2) 10px,
-    rgba(0,0,0,0.2) 20px
-  );
-  z-index: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
+  z-index: 1;
 }
 
 header h1 {
@@ -50,7 +62,7 @@ header h1 {
   margin: 10px 0 5px;
   z-index: 2;
   color: #facc15;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.8);
 }
 
 header p {
@@ -59,7 +71,7 @@ header p {
   color: #fde68a;
 }
 
-/* TREASURE LOGO */
+/* ================= LOGO ================= */
 .logo {
   width: 120px;
   height: 120px;
@@ -75,6 +87,7 @@ header p {
   100% { transform: translateY(0) rotate(-2deg); }
 }
 
+/* ================= LAYOUT ================= */
 section {
   max-width: 1100px;
   margin: auto;
@@ -148,6 +161,7 @@ button:hover {
   width: 100%;
   border-radius: 14px;
   margin-bottom: 12px;
+  cursor: zoom-in;
 }
 
 .price {
@@ -173,18 +187,38 @@ footer {
   color: #fde68a;
 }
 
-/* MOBILE */
+/* ================= MODAL ================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
   header { height: 260px; }
   header h1 { font-size: 2.2rem; }
   section { padding: 25px 16px; }
   .grid { grid-template-columns: 1fr; }
 }
-</style>
+  </style>
 </head>
 <body>
 
 <header>
+  <!-- OPTIONAL LOGO -->
+  <!-- <img src="logo.png" class="logo" alt="Tech Treasure Trove Logo"> -->
+
   <h1>Tech Treasure Trove</h1>
   <p>Plunder the finest PC loot on the seven digital seas</p>
 
@@ -215,7 +249,7 @@ footer {
 
       <div class="listing">
         <img src="https://via.placeholder.com/400x250?text=RTX+3060" onclick="openModal(this.src)">
-        <span class="badge badge-used">USED</span>
+        <span class="badge">USED</span>
         <h3>RTX 3060</h3>
         <p class="price">250 Gold</p>
         <p>Fully seaworthy, stored in its chest</p>
@@ -223,7 +257,7 @@ footer {
 
       <div class="listing">
         <img src="https://via.placeholder.com/400x250?text=Gaming+Keyboard" onclick="openModal(this.src)">
-        <span class="badge badge-new">LIKE NEW</span>
+        <span class="badge">LIKE NEW</span>
         <h3>Mechanical Keyboard</h3>
         <p class="price">60 Gold</p>
         <p>Glows like cursed treasure, boxed</p>
@@ -256,6 +290,7 @@ footer {
     document.getElementById('modalImage').src = src;
     document.getElementById('imageModal').style.display = 'flex';
   }
+
   function closeModal() {
     document.getElementById('imageModal').style.display = 'none';
   }
