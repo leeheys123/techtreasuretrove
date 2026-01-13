@@ -9,169 +9,184 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #0f172a, #020617);
-      color: #e5e7eb;
-    }
+body {
+  margin: 0;
+  font-family: 'Cinzel', 'Poppins', serif;
+  background: radial-gradient(circle at top, #3b2f2f, #0f172a 70%);
+  color: #f8fafc;
+}
 
-    /* HEADER + SLIDER */
-    header {
-      position: relative;
-      height: 340px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-    }
+/* PIRATE HEADER */
+header {
+  position: relative;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e293b, #3b2f2f);
+}
 
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-      z-index: 2;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.7);
-    }
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,215,0,0.08),
+    rgba(255,215,0,0.08) 10px,
+    rgba(0,0,0,0.2) 10px,
+    rgba(0,0,0,0.2) 20px
+  );
+  z-index: 0;
+}
 
-    header p {
-      font-size: 1.2rem;
-      color: #93c5fd;
-      z-index: 2;
-    }
+header h1 {
+  font-size: 3.2rem;
+  margin: 10px 0 5px;
+  z-index: 2;
+  color: #facc15;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
 
-    .slider {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
+header p {
+  font-size: 1.2rem;
+  z-index: 2;
+  color: #fde68a;
+}
 
-    .slide {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1.5s ease;
-    }
+/* TREASURE LOGO */
+.logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+  z-index: 2;
+  animation: bob 3s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7));
+}
 
-    .slide.active { opacity: 1; }
+@keyframes bob {
+  0% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
+}
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-    .card {
-      background: #020617;
-      border: 1px solid #1e293b;
-      border-radius: 18px;
-      padding: 25px;
-      margin-bottom: 30px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-    }
+.card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 30px;
+  border: 2px solid #facc15;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
 
-    h2 { color: #93c5fd; margin-top: 0; }
-    h3 { color: #bfdbfe; }
+h2 {
+  color: #facc15;
+  margin-top: 0;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #334155;
-      background: #020617;
-      color: #e5e7eb;
-      margin-bottom: 16px;
-    }
+h3 { color: #fde68a; }
 
-    button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: white;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-    }
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #facc15;
+  background: #020617;
+  color: #f8fafc;
+  margin-bottom: 16px;
+}
 
-    button:hover { opacity: 0.9; }
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 2px solid #facc15;
+  background: linear-gradient(135deg, #ca8a04, #facc15);
+  color: #020617;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
+button:hover {
+  background: linear-gradient(135deg, #facc15, #fde047);
+}
 
-    .listing {
-      background: #020617;
-      border: 1px solid #1e293b;
-      border-radius: 16px;
-      padding: 18px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
 
-    .listing:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(34,197,94,0.35);
-    }
+.listing {
+  background: linear-gradient(145deg, #020617, #1e293b);
+  border-radius: 18px;
+  padding: 20px;
+  border: 2px solid #ca8a04;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .listing img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      cursor: zoom-in;
-    }
+.listing:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 30px 60px rgba(250,204,21,0.35);
+}
 
-    .price { color: #22c55e; font-size: 1.4rem; font-weight: 700; }
+.listing img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
 
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
+.price {
+  color: #facc15;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
 
-    .badge-used { background: #3b82f6; color: #020617; }
-    .badge-new { background: #22c55e; color: #052e16; }
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: #713f12;
+  color: #fde68a;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #9ca3af;
-      border-top: 1px solid #1e293b;
-    }
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #fde68a;
+}
 
-    /* MODAL */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 16px;
-    }
-  </style>
+/* MOBILE */
+@media (max-width: 768px) {
+  header { height: 260px; }
+  header h1 { font-size: 2.2rem; }
+  section { padding: 25px 16px; }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
 <header>
   <h1>Tech Treasure Trove</h1>
-  <p>Buy & sell PC parts and gaming gear 🎮</p>
+  <p>Plunder the finest PC loot on the seven digital seas</p>
 
   <div class="slider">
     <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1600&q=80')"></div>
@@ -182,36 +197,36 @@
 
 <section>
   <div class="card">
-    <h2>Post an Item</h2>
+    <h2>Add Yer Booty</h2>
     <form>
-      <input placeholder="Item name" required>
-      <input placeholder="Price (£)" type="number" required>
-      <select><option>New</option><option>Used</option></select>
-      <textarea placeholder="Description"></textarea>
-      <input type="file" accept="image/*">
-      <input placeholder="Contact details" required>
-      <button>Submit Listing</button>
+      <input placeholder="Name o’ the Treasure" required>
+      <input placeholder="Asking Gold (£)" type="number" required>
+      <select><option>Freshly Forged</option><option>Battle‑Worn</option></select>
+      <textarea placeholder="Tell the Tale of this Treasure"></textarea>
+      <input type="file" accept="image/*" title="Show Yer Treasure">
+      <input placeholder="How to Contact the Captain" required>
+      <button>Hoist the Colours & List It!</button>
     </form>
   </div>
 
   <div class="card">
-    <h2>Marketplace Listings</h2>
+    <h2>The Trading Deck</h2>
     <div class="grid">
 
       <div class="listing">
         <img src="https://via.placeholder.com/400x250?text=RTX+3060" onclick="openModal(this.src)">
         <span class="badge badge-used">USED</span>
         <h3>RTX 3060</h3>
-        <p class="price">£250</p>
-        <p>Fully working, boxed</p>
+        <p class="price">250 Gold</p>
+        <p>Fully seaworthy, stored in its chest</p>
       </div>
 
       <div class="listing">
         <img src="https://via.placeholder.com/400x250?text=Gaming+Keyboard" onclick="openModal(this.src)">
         <span class="badge badge-new">LIKE NEW</span>
         <h3>Mechanical Keyboard</h3>
-        <p class="price">£60</p>
-        <p>RGB, boxed</p>
+        <p class="price">60 Gold</p>
+        <p>Glows like cursed treasure, boxed</p>
       </div>
 
     </div>
@@ -223,7 +238,7 @@
 </div>
 
 <footer>
-  © 2026 Tech Treasure Trove
+  © 2026 Tech Treasure Trove — Sail safe, trade fair, claim the gold
 </footer>
 
 <script>
