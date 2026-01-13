@@ -71,18 +71,83 @@ header p {
   color: #fde68a;
 }
 
-/* ================= LOGO ================= */
-.logo {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 10px;
+/* ================= TREASURE CHEST LOGO ================= */
+.treasure-logo {
   z-index: 2;
+  margin-bottom: 12px;
+}
+
+.chest {
+  position: relative;
+  width: 120px;
+  height: 90px;
   animation: bob 3s ease-in-out infinite;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7));
+}
+
+.base {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  background: linear-gradient(145deg,#7c2d12,#451a03);
+  border: 3px solid #facc15;
+  border-radius: 0 0 14px 14px;
+}
+
+.lid {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(145deg,#92400e,#451a03);
+  border: 3px solid #facc15;
+  border-radius: 14px 14px 6px 6px;
+  transform-origin: bottom center;
+  animation: openLid 4s ease-in-out infinite;
+}
+
+.glow {
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(250,204,21,0.4), transparent 70%);
+  animation: pulse 3s infinite;
+}
+
+.loot {
+  position: absolute;
+  width: 20px;
+  height: 14px;
+  background: #22c55e;
+  border-radius: 4px;
+  opacity: 0;
+  animation: lootPop 4s infinite;
+}
+
+.cpu { left: 20px; animation-delay: 0s; }
+.gpu { left: 50px; background:#38bdf8; animation-delay: .5s; }
+.ram { left: 80px; background:#a855f7; animation-delay: 1s; }
+
+@keyframes openLid {
+  0%,100% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-55deg); }
+}
+
+@keyframes lootPop {
+  0% { bottom: 30px; opacity: 0; }
+  50% { bottom: 70px; opacity: 1; }
+  100% { bottom: 30px; opacity: 0; }
+}
+
+@keyframes pulse {
+  0%,100% { opacity: .4; }
+  50% { opacity: .8; }
 }
 
 @keyframes bob {
-  0% { transform: translateY(0) rotate(-2deg); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
   50% { transform: translateY(-12px) rotate(2deg); }
   100% { transform: translateY(0) rotate(-2deg); }
 }
@@ -216,8 +281,17 @@ footer {
 <body>
 
 <header>
-  <!-- OPTIONAL LOGO -->
-  <!-- <img src="logo.png" class="logo" alt="Tech Treasure Trove Logo"> -->
+  <!-- ANIMATED TREASURE CHEST LOGO -->
+  <div class="treasure-logo">
+    <div class="chest">
+      <div class="lid"></div>
+      <div class="base"></div>
+      <div class="glow"></div>
+      <div class="loot cpu"></div>
+      <div class="loot gpu"></div>
+      <div class="loot ram"></div>
+    </div>
+  </div>
 
   <h1>Tech Treasure Trove</h1>
   <p>Plunder the finest PC loot on the seven digital seas</p>
